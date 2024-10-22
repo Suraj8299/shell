@@ -12,10 +12,10 @@ shortcut_applied() {
     read -p "Pop shell will override your default shortcuts. Are you sure? (y/n) " CONT
     if test "$CONT" = "y"; then
         touch "./.confirm_shortcut_change"
-        return 1
+        return 0  # Changed to 0 for success
     else
         echo "Cancelled"
-        return 0
+        return 1  # Changed to 1 for cancellation/failure
     fi
 }
 
